@@ -33,7 +33,7 @@ class UpdateData(APIView):
         if ser_obj.is_valid():
             ser_obj.save()
             user_data =  Book_Model.objects.all()
-            ser_obj = SerializerMachine(user_data, many = True)
+            ser_obj = SerializerMachine(user_data, many=True)
             d1 = ser_obj.data
             return Response(data= d1)
         else:
@@ -45,6 +45,6 @@ class DeleteData(APIView):
         user_obj = Book_Model.objects.get(id = pk)
         user_obj.delete()
         user_data =  Book_Model.objects.all()
-        ser_obj = SerializerMachine(user_data, many = True)
+        ser_obj = SerializerMachine(user_data, many= True)
         d1 = ser_obj.data
         return Response(data= d1)
