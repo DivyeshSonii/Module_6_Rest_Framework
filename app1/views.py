@@ -7,7 +7,7 @@ from rest_framework.response import Response
 
 # Create your views here.
 class GetData(APIView):
-    def get_data(self, request, pk):
+    def get(self, request, pk):
         user_data =  Book_Model.objects.get(id = pk)
         ser_obj = SerializerMachine(user_data)
         d1 = ser_obj.data
